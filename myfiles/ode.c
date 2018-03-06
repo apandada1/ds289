@@ -1,4 +1,4 @@
-#include <cblas.h>
+#include "blas.h"
 #include "ode.h"
 
 void stepRK1(double x, double *y, int m,

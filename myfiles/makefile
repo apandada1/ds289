@@ -1,12 +1,12 @@
 CC=gcc
 CFLAGS=-I.
-DEPS= ellint.h agm.h
-OBJ= ellint.o agm.o
+DEPS= ellint.h agm.h ode.h blas.h
+OBJ= pendComp.o ellint.o agm.o ode.o blas.o
 
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS) -lm
 
-ellint.exe: $(OBJ)
+pendComp.exe: $(OBJ)
 	$(CC) -o $@ $+ -lm
 
 clean:
