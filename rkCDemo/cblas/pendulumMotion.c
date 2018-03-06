@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
     pd.g = g;
     pd.gOverL = g / L;
 
-    theta0 = theta0_deg * M_PI / 180.0;
+    theta0 = theta0_deg * M_PI / 180.0; //converting to radians
     omega0 = sqrt(pd.gOverL);
     T0 = 2.0 * M_PI / omega0;
     tStep = 2.0 * T0 / nSteps;
@@ -47,6 +47,7 @@ int main(int argc, char *argv[])
     t = 0.0;
     theta_sa = theta0;
     printf("%g %.16g %.16g\n", t, y[0], theta_sa);
+        //above line prints the value in scientific format
     for (idx = 0; idx < nSteps; idx++) {
         stepRK4(t, y, 2, fn, &pd, ws, tStep, ynext);
         t += tStep;
